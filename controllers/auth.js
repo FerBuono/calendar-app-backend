@@ -48,7 +48,7 @@ const loginUser = async(req, res = response) => {
 
     try {
         let user = await User.findOne({email}); // busca un usuario con ese email
-        console.log(user.uid)
+
         if(!user) {
             return res.status(400).json({
                 ok: false,
@@ -93,7 +93,9 @@ const renewToken = async(req, res = response) => {
 
     res.status(200).json({
         ok: true,
-        token
+        token,
+        uid, 
+        name
     });
 };
 
